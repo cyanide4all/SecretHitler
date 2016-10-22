@@ -5,4 +5,7 @@ package cyanoboru.secrethitler.core;
  */
 
 public class PersonajeLiberal implements CartaDeIdentidad {
+    public String getPersonaje() {
+        return "Un hombre Liberal";
+    }
 }

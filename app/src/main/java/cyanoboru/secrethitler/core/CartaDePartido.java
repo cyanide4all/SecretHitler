@@ -5,4 +5,5 @@ package cyanoboru.secrethitler.core;
  */
 
 public interface CartaDePartido {
+    public String getPartido(); //Más adelante haremos que esto nos de la foto a mostrar
 }

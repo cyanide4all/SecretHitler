@@ -5,4 +5,7 @@ package cyanoboru.secrethitler.core;
  */
 
 public class LeyFascista implements CartaDeLey {
+    public String getLey() {
+        return "Fascista";
+    }
 }

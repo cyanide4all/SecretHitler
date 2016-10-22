@@ -5,4 +5,8 @@ package cyanoboru.secrethitler.core;
  */
 
 public class LeyLiberal implements CartaDeLey {
+    public String getLey() {
+        return "Liberal";
+    }
 }
+

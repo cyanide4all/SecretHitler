@@ -5,4 +5,7 @@ package cyanoboru.secrethitler.core;
  */
 
 public class PartidoFascista implements CartaDePartido {
+    public String getPartido() {
+        return "Fascista";
+    }
 }

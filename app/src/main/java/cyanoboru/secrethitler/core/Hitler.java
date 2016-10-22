@@ -5,4 +5,8 @@ package cyanoboru.secrethitler.core;
  */
 
 public class Hitler extends PersonajeFascista implements CartaDeIdentidad {
+    @Override
+    public String getPersonaje() {
+        return "Hitler";
+    }
 }
