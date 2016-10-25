@@ -14,11 +14,13 @@ public class Tablero {
     private MazoDeLeyes leyes;
 
 
-    public Tablero(){
+
+    public Tablero(int nJug){
         filaLiberal = new ArrayList<>();
         filaFascista = new ArrayList<>();
         leyes = new MazoDeLeyes();
         contadorDeCaos = 0;
+
     }
 
     public void aprobarLey(CartaDeLey cdl){
@@ -27,6 +29,11 @@ public class Tablero {
         }else{
             filaLiberal.add((LeyLiberal) cdl);
         }
+        resetCaos(); //Esta norma nos la saltabamos porque no me la sabia pero ahora si
+    }
+
+    private void resetCaos() {
+        contadorDeCaos = 0;
     }
 
     public void aumentarCaos(){
@@ -37,5 +44,5 @@ public class Tablero {
         }
     }
 
-    //AQUI ME HE QUEDAO
+
 }

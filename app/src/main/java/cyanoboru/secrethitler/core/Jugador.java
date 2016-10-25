@@ -9,8 +9,7 @@ public class Jugador {
     private CartaDePartido partido;
     private CartaDeIdentidad personaje;
 
-    public Jugador(int i, CartaDePartido pa, CartaDeIdentidad pe){
-        id = i;
+    public Jugador(CartaDePartido pa, CartaDeIdentidad pe){
         partido = pa;
         personaje = pe;
     }
@@ -20,6 +19,9 @@ public class Jugador {
     }
     public CartaDeIdentidad getCartaDeIdentidad(){
         return personaje;
+    }
+    public void setID(int i){
+        id=i;
     }
 
 
