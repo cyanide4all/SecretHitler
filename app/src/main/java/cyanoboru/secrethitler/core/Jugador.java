@@ -47,6 +47,10 @@ public class Jugador {
         this.partido = new PartidoLiberal();
     }
 
+    public String getNombre(){
+        return nombre;
+    }
+
     public CartaDePartido getCartaDePartido(){
         return partido;
     }

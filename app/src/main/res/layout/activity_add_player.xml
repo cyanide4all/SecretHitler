@@ -30,9 +30,9 @@ tools:context="cyanoboru.secrethitler.MainActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Your name"
         android:ems="10"
-        android:id="@+id/newPlayerName" />
+        android:id="@+id/newPlayerName"
+        android:hint="Your name" />
 
     <LinearLayout
         android:orientation="vertical"

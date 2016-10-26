@@ -34,6 +34,10 @@ public class Partida {
         jugadores.add(new Jugador(playerName));
     }
 
+    public ArrayList<Jugador> getJugadores(){
+        return jugadores;
+    }
+
     //Crea el array de jugadores en funcion del numero de jugadores que existan
     public void repartirRoles(){
         int numJugadores = jugadores.size();

@@ -24,6 +24,7 @@ public class add_player extends AppCompatActivity {
 
     protected void showPlayerRole(){
         // jump to the activity that shows the role to the player
+        partida.repartirRoles();
         Intent i = new Intent(add_player.this, show_role.class);
         startActivity(i);
     }
@@ -51,7 +52,8 @@ public class add_player extends AppCompatActivity {
             public void onClick(View v) {
                 String p = player_name.getText().toString();
                 addPlayer(p);
-                Toast.makeText(add_player.this,"Player "+p+" Created", Toast.LENGTH_LONG).show();
+                Toast.makeText(add_player.this,"Player "+p+" Added to the game", Toast.LENGTH_LONG).show();
+                player_name.setText("");
             }
         });
     }
