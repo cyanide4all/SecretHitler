@@ -15,6 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".add_player" />
+        <activity android:name=".show_role"></activity>
     </application>
 
 </manifest>

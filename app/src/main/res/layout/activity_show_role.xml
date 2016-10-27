@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/playerName"
+            android:textAppearance="@android:style/TextAppearance.Material.Headline" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:text="Party:"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7"
+            android:textAppearance="@android:style/TextAppearance.Material.Headline" />
+
+        <TextView
+            android:text="Press show to view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/showRoleParty"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="You are"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textAppearance="@android:style/TextAppearance.Material.Headline"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="Press show to view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ShowRolePlayer"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom">
+
+        <Button
+            android:text="Show!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/showButton" />
+
+        <Button
+            android:text="Ok i get it!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/okButton" />
+    </LinearLayout>
+</LinearLayout>

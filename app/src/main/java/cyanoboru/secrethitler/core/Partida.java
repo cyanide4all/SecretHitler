@@ -5,25 +5,42 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
+import java.util.Arrays;
 
 /**
  * Created by cya on 25/10/16.
  */
 
 public class Partida {
-    private int numJugadores;
-    private Tablero tablero;
-    private Jugador[] jugadores;
 
-    public Partida (int numJug){
-        numJugadores = numJug;
-        tablero = new Tablero(numJugadores);
-        jugadores = new Jugador[numJugadores];
-        repartirRoles();
+    private static Partida instance = null;
+
+    public static Partida getInstance(){
+        if (instance == null){
+            instance = new Partida();
         }
+        return instance;
+    }
+
+    private Tablero tablero;
+    private ArrayList<Jugador> jugadores;
+
+    protected Partida (){
+        jugadores = new ArrayList<Jugador>();
+    }
+
+    public void addPlayer(String playerName ){
+        jugadores.add(new Jugador(playerName));
+    }
+
+    public ArrayList<Jugador> getJugadores(){
+        return jugadores;
+    }
 
     //Crea el array de jugadores en funcion del numero de jugadores que existan
     public void repartirRoles(){
+        int numJugadores = jugadores.size();
         int criterio;
         if(numJugadores<7){
             criterio = 1;
@@ -34,20 +51,23 @@ public class Partida {
                 criterio = 3;
             }
         }
-        List<Jugador> aux = new ArrayList<Jugador>();
-        aux.add( new Jugador(new PartidoFascista(), new Hitler()));
-        for (int i=0; i<numJugadores-1; i++) {
-            if (i < criterio) {
-                aux.add(new Jugador(new PartidoFascista(), new PersonajeFascista()));
-            } else {
-                aux.add(new Jugador(new PartidoLiberal(), new PersonajeLiberal()));
-            }
+        // create a non repeating random numbers machine
+        Integer[] arr = new Integer[numJugadores];
+        for (int i = 0; i<numJugadores; i++){
+            arr[i] = i;
         }
-        Collections.shuffle(aux);
-        for(int i = 0; i<aux.size(); i++){
-            jugadores[i] = aux.get(i);
-            jugadores[i].setID(i);
+        Collections.shuffle(Arrays.asList(arr));
+        int pos = 0;
+
+        jugadores.get(arr[pos]).setHitler();
+        pos++;
+
+        while (criterio > 0) {
+            jugadores.get(arr[pos]).setFascista();
+            criterio--;
+            pos++;
         }
+        // todos los jugadores tienen ahora su rol
     }
 
 }
