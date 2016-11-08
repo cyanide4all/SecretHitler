@@ -69,8 +69,14 @@ public class MazoDeLeyes {
             toRet[1] = cartas.pop();
             toRet[2] = cartas.pop();
             cartasRestantes-=3;
+            return toRet;
         }
-        return null;
+        // barajamos otra vez
+        this.cartas = new MazoDeLeyes().cartas;
+        this.cartasRestantes = nLeyesFascistas + nLeyesLiberales;
+        // Si creas una funcion que baraje el mismo mazo sin tener que hacer otro mejor
+
+        return this.legislacion();
     }
 
 

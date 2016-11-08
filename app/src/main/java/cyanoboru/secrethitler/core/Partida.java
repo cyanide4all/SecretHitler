@@ -23,11 +23,13 @@ public class Partida {
         return instance;
     }
 
+    public boolean rolesListos;
     private Tablero tablero;
     private ArrayList<Jugador> jugadores;
 
     protected Partida (){
         jugadores = new ArrayList<Jugador>();
+        rolesListos = false;
     }
 
     public void addPlayer(String playerName ){
@@ -68,6 +70,12 @@ public class Partida {
             pos++;
         }
         // todos los jugadores tienen ahora su rol
+        this.rolesListos = true;
+        this.tablero = new Tablero(numJugadores);
+    }
+
+    public Tablero getTablero(){
+        return this.tablero;
     }
 
 }

@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".add_player" />
-        <activity android:name=".show_role"></activity>
+        <activity android:name=".show_role" />
+        <activity android:name=".legislar"></activity>
     </application>
 
 </manifest>
