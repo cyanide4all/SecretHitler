@@ -23,6 +23,10 @@ public class Tablero {
 
     }
 
+    public CartaDeLey[] get3Cartas(){
+        return leyes.legislacion();
+    }
+
     public void aprobarLey(CartaDeLey cdl){
         if (cdl.getLey().equals("Fascista")){
             filaFascista.add((LeyFascista) cdl); //Aqui podría hacerse la comprobacion de poderes
@@ -43,6 +47,4 @@ public class Tablero {
             aprobarLey(leyes.caos());
         }
     }
-
-
 }
