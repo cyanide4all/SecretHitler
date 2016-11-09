@@ -23,7 +23,7 @@ public class Tablero {
 
     }
 
-    public CartaDeLey[] get3Cartas(){
+    public List<CartaDeLey> get3Cartas(){
         return leyes.legislacion();
     }
 

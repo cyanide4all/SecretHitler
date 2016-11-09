@@ -1,6 +1,8 @@
 package cyanoboru.secrethitler.core;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -52,31 +54,33 @@ public class MazoDeLeyes {
     }
 
 
-    //Saca una carta
+    //Saca una carta y baraja si no quedan
     public CartaDeLey caos(){
         if(!cartas.isEmpty()){
             return cartas.pop();
         }else{
-            return null; //Esto no debería pasar jamas
+            return null; //TODO que esto baraje
         }
     }
 
-    //Saca tres cartas
-    public CartaDeLey[] legislacion(){
+    //Saca tres cartas ya baraja si no quedan
+    public List<CartaDeLey> legislacion(){
         if(cartasRestantes > 2){
-            CartaDeLey[] toRet = new CartaDeLey[3];
-            toRet[0] = cartas.pop();
-            toRet[1] = cartas.pop();
-            toRet[2] = cartas.pop();
+            List<CartaDeLey> toRet = new ArrayList<>();
+            toRet.add(cartas.pop());
+            toRet.add(cartas.pop());
+            toRet.add(cartas.pop());
             cartasRestantes-=3;
             return toRet;
-        }
-        // barajamos otra vez
-        this.cartas = new MazoDeLeyes().cartas;
-        this.cartasRestantes = nLeyesFascistas + nLeyesLiberales;
-        // Si creas una funcion que baraje el mismo mazo sin tener que hacer otro mejor
+        }else {
+            // TODO esto pero bien, que esta barajando mal
+            // barajamos otra vez
+            this.cartas = new MazoDeLeyes().cartas;
+            this.cartasRestantes = nLeyesFascistas + nLeyesLiberales;
+            // Si creas una funcion que baraje el mismo mazo sin tener que hacer otro mejor
 
-        return this.legislacion();
+            return this.legislacion();
+        }
     }
 
 

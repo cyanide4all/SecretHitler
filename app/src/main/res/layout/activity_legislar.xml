@@ -19,7 +19,7 @@
             android:text="President"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView8"
+            android:id="@+id/ID_Jugando"
             android:textAppearance="@android:style/TextAppearance.Material.Headline" />
 
         <LinearLayout
