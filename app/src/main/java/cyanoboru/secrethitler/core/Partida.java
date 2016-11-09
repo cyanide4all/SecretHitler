@@ -32,6 +32,11 @@ public class Partida {
         rolesListos = false;
     }
 
+    public void incrementarCaos(){
+        tablero.aumentarCaos();
+        //Puede que esto tenga que hacer mas cosas
+    }
+
     public void addPlayer(String playerName ){
         jugadores.add(new Jugador(playerName));
     }

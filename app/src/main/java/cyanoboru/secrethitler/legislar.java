@@ -28,14 +28,10 @@ public class legislar extends AppCompatActivity {
     protected Tablero tablero;
 
     protected void discardCard(TextView card, CartaDeLey cartaDeLey){
-        // todo no mostrar la carta en tooglelaws
-        // todo dialogo
-        // todo presidente y canciller
         if(!hidden) {
             showCartas.remove(card);
             cartas.remove(cartaDeLey);
             card.setText("");
-            // todo esto es cutre
             TextView jugando = (TextView) findViewById(R.id.ID_Jugando);
             jugando.setText("Canciller");
             toogleLaws();

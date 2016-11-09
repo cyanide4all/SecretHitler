@@ -18,105 +18,57 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/FilaFascista">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:text="TextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Fascista1"
-                android:layout_weight="1" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Fascista2"
-                android:layout_weight="1" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Fascista3"
-                android:layout_weight="1" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Fascista4"
-                android:layout_weight="1" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Fascista5"
-                android:layout_weight="1" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Fascista6"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/FilaLiberal">
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Liberal1"
-                android:layout_weight="1" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Liberal2"
-                android:layout_weight="1" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Liberal3"
-                android:layout_weight="1" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Liberal4"
-                android:layout_weight="1" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_height="match_parent"
-                android:id="@+id/Liberal5"
+                android:text="FASCISTAS"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8"
                 android:layout_weight="1"
-                android:layout_width="0dp" />
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_width="wrap_content" />
 
             <TextView
-                android:text="TextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Caos"
-                android:layout_weight="1" />
+                android:text="LIBERALES"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView9"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/FascistasAprobadas"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display4" />
+
+            <TextView
+                android:text="0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/LiberalesAprobadas"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display4" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/FilaBotones">
 
             <Button
@@ -130,7 +82,43 @@
                 android:text="Caos"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/button2"
+                android:id="@+id/CaosButton"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Nivel de Caos:"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/textView10"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <TextView
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/NivelDeCaos"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ExtraText"
                 android:layout_weight="1" />
         </LinearLayout>
 
