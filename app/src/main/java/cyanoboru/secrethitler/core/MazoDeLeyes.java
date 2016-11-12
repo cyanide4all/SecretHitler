@@ -17,6 +17,7 @@ public class MazoDeLeyes {
 
     //ATRIBUTOS
     private Stack<CartaDeLey> cartas;
+    private ArrayList<CartaDeLey> aBarajar;
     private int cartasRestantes;
     //METODOS
 
@@ -44,22 +45,30 @@ public class MazoDeLeyes {
         cartasRestantes = nLeyesFascistas + nLeyesLiberales;
     }
 
-    //Devuelve un mazo con todas las cartas
-    public static MazoDeLeyes barajar(){
-        return new MazoDeLeyes();
+    //Cartas se baraja todas las cartas de aBarajar
+    public void barajar(){
+        cartas = new Stack<>();
+        for(int i = 0; i<aBarajar.size(); i++){
+            cartas.push(aBarajar.get(i)); //Pusheamos en orden normal TODO hacerlo con random
+        }
+        aBarajar = new ArrayList<>(); //Reiniciamos
     }
 
     public int getCartasRestantes(){
         return cartas.capacity();
     }
 
+    public void aprobadaQueNoSeBaraja(CartaDeLey c){
+        aBarajar.remove(c);
+    }
 
     //Saca una carta y baraja si no quedan
     public CartaDeLey caos(){
         if(!cartas.isEmpty()){
             return cartas.pop();
         }else{
-            return null; //TODO que esto baraje
+            this.barajar();  //Baraja
+            return this.caos();     //y reintenta
         }
     }
 
@@ -67,18 +76,20 @@ public class MazoDeLeyes {
     public List<CartaDeLey> legislacion(){
         if(cartasRestantes > 2){
             List<CartaDeLey> toRet = new ArrayList<>();
-            toRet.add(cartas.pop());
-            toRet.add(cartas.pop());
-            toRet.add(cartas.pop());
+            CartaDeLey aux;
+            for(int i = 0; i<3;i++) {
+                aux = cartas.pop();
+                toRet.add(aux);
+                aBarajar.add(aux);
+            }
             cartasRestantes-=3;
             return toRet;
         }else {
             // TODO esto pero bien, que esta barajando mal
             // barajamos otra vez
-            this.cartas = new MazoDeLeyes().cartas;
+            this.barajar();
             this.cartasRestantes = nLeyesFascistas + nLeyesLiberales;
-            // Si creas una funcion que baraje el mismo mazo sin tener que hacer otro mejor
-
+            // Si creas una funcion que baraje el mismo mazo sin tener que hacer otro mejor -> GG
             return this.legislacion();
         }
     }

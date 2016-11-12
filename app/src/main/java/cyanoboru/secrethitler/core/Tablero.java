@@ -51,6 +51,7 @@ public class Tablero {
         }else{
             filaLiberal++;
         }
+        leyes.aprobadaQueNoSeBaraja(cdl);
         resetCaos(); //Esta norma nos la saltabamos porque no me la sabia pero ahora si
     }
 
