@@ -24,7 +24,7 @@ public class MazoDeLeyes {
     //Constructor
     public MazoDeLeyes(){
         cartas = new Stack<CartaDeLey>();
-
+        aBarajar = new ArrayList<>();
         int liberalesPorIntroducir= nLeyesLiberales;
         int fascistasPorIntroducir= nLeyesFascistas;
 

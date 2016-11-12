@@ -76,8 +76,14 @@ public class MainActivity extends AppCompatActivity {
         update.setText(String.valueOf(partida.getTablero().getCaos()));
 
         //Actualizamos el textbox de info importante
+        TextView extraText = (TextView) findViewById(R.id.ExtraText);
+        String toShow = "";
+        toShow+= "El presidente nombre y todos votais al siguiente canciller\n";
+        if(partida.getTablero().getFascistas()>=3){
+            toShow +=  "Si el próximo canciller es Hitler, ganaran esos cerdos fascistas";
+        }
         //TODO MUY FUERTE
-
-
+        //TODO Segun el numero de jugadores y leyes fascistas, hablar de los poderes
+        extraText.setText(toShow);
     }
 }
