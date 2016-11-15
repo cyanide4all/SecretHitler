@@ -1,7 +1,10 @@
 package cyanoboru.secrethitler.core;
 
 
+import android.util.Log;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -48,6 +51,17 @@ public class MazoDeLeyes {
     //Cartas se baraja todas las cartas de aBarajar
     public void barajar(){
         cartas = new Stack<>();
+        ArrayList<Integer> randomVector = new ArrayList<>(aBarajar.size());
+        int counter = 0;
+
+        for (int t:randomVector){
+             randomVector.set(counter, counter++);
+        }
+        // crear un arrayList tipo [1,2,3,4,5,6,7,8,9..]
+        Collections.shuffle(randomVector);
+        // ahora tiene randoms tipo [2,4,1,7,8...]
+        // que NO SE REPITEN de modo que NO hay cartas repetidas indebidamente
+
         for(int i = 0; i<aBarajar.size(); i++){
             cartas.push(aBarajar.get(i)); //Pusheamos en orden normal TODO hacerlo con random
         }
@@ -75,21 +89,21 @@ public class MazoDeLeyes {
     //Saca tres cartas ya baraja si no quedan
     public List<CartaDeLey> legislacion(){
         if(cartasRestantes > 2){
-            List<CartaDeLey> toRet = new ArrayList<>();
+            List<CartaDeLey> toRet = new ArrayList<>(3);
             CartaDeLey aux;
             for(int i = 0; i<3;i++) {
                 aux = cartas.pop();
                 toRet.add(aux);
+                Log.d("carta",aux.getLey());
                 aBarajar.add(aux);
             }
             cartasRestantes-=3;
             return toRet;
         }else {
-            // TODO esto pero bien, que esta barajando mal
+            // ahora baraja bien
             // barajamos otra vez
             this.barajar();
             this.cartasRestantes = nLeyesFascistas + nLeyesLiberales;
-            // Si creas una funcion que baraje el mismo mazo sin tener que hacer otro mejor -> GG
             return this.legislacion();
         }
     }

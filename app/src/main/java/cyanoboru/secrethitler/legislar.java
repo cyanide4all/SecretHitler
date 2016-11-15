@@ -3,6 +3,7 @@ package cyanoboru.secrethitler;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,10 +28,10 @@ public class legislar extends AppCompatActivity {
     protected List<CartaDeLey> cartas;
     protected Tablero tablero;
 
-    protected void discardCard(TextView card, CartaDeLey cartaDeLey){
+    protected void discardCard(TextView card){
         if(!hidden) {
             showCartas.remove(card);
-            cartas.remove(cartaDeLey);
+            cartas.remove(card.getText().toString());
             card.setText("");
             TextView jugando = (TextView) findViewById(R.id.ID_Jugando);
             jugando.setText("Canciller");
@@ -38,6 +39,20 @@ public class legislar extends AppCompatActivity {
             if (showCartas.size() == 1) {
                 this.setResult(1, new Intent().putExtra("carta", cartas.get(0)));
                 this.finish();
+            }
+            Log.d("carta descartada",card.getText().toString());
+            for (CartaDeLey c: cartas){
+                Log.d("carta existente ",c.getLey());
+                Log.d("Posicion", Integer.toString(cartas.indexOf(c)));
+            }
+        }
+    }
+
+    protected void removeCarta(String carta){
+        for (CartaDeLey c: cartas){
+            if(c.getLey().compareTo(carta) == 0){
+                cartas.remove(c);
+                break;
             }
         }
     }
@@ -84,19 +99,19 @@ public class legislar extends AppCompatActivity {
         law1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                discardCard(law1, cartas.get(0));
+                discardCard(law1);
             }
         });
         law2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                discardCard(law2, cartas.get(1));
+                discardCard(law2);
             }
         });
         law3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                discardCard(law3, cartas.get(2));
+                discardCard(law3);
             }
         });
     }
