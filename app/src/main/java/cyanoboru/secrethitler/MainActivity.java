@@ -143,12 +143,15 @@ public class MainActivity extends AppCompatActivity {
         }
         if(fascistasAprobadas == 3){
             if(numJugadores<7){
+                //TODO con nueva actividad. El poder mas complicado. Requerira de cosas en el core
                 //Espiar tres cartas
             }else {
+                //TODO con alertDialog
                 //Presidente a dedo
             }
         }
         if(fascistasAprobadas > 3){
+            //TODO con nueva actividad. Casi plagio del investigar
             //kill
         }
 
