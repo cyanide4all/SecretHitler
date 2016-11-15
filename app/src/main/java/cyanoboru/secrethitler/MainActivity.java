@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(new Intent(MainActivity.this, add_player.class), REQUEST_JUGADORES);
             // redirect main activity to add player
         }
+        if (partida.rolesListos){
+            actualizarTodo();
+        }
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -60,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this,"LEY APROBADA POR LEGISLACION", Toast.LENGTH_LONG).show();
             Partida.getInstance().getTablero().aprobarLey((CartaDeLey) data.getExtras().getSerializable("carta"));
             actualizarTodo();
-        }
-        if(requestCode == REQUEST_JUGADORES){
+        }else{
             actualizarTodo();
         }
     }
