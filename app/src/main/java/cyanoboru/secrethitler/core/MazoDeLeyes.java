@@ -63,7 +63,10 @@ public class MazoDeLeyes {
         // que NO SE REPITEN de modo que NO hay cartas repetidas indebidamente
 
         for(int i = 0; i<aBarajar.size(); i++){
-            cartas.push(aBarajar.get(i)); //Pusheamos en orden normal TODO hacerlo con random
+            cartas.push(aBarajar.get(i)); //Pusheamos en orden normal
+        }
+        for(CartaDeLey c: cartas){
+            Log.d("Carta:",c.getLey());
         }
         aBarajar = new ArrayList<>(); //Reiniciamos
     }
@@ -82,6 +85,7 @@ public class MazoDeLeyes {
             return cartas.pop();
         }else{
             this.barajar();  //Baraja
+            this.cartasRestantes = nLeyesFascistas + nLeyesLiberales;
             return this.caos();     //y reintenta
         }
     }

@@ -52,7 +52,7 @@ public class add_player extends AppCompatActivity {
             public void onClick(View v) {
                 String p = player_name.getText().toString();
                 addPlayer(p);
-                Toast.makeText(add_player.this,"Player "+p+" Added to the game", Toast.LENGTH_LONG).show();
+                Toast.makeText(add_player.this,"Player "+p+" Added to the game", Toast.LENGTH_SHORT).show();
                 player_name.setText("");
             }
         });
