@@ -129,5 +129,28 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         extraText.setText(toShow);
+        checkPoderes();
+    }
+
+    public void checkPoderes(){
+        int fascistasAprobadas = partida.getTablero().getFascistas();
+        int numJugadores = partida.getJugadores().size();
+        if(fascistasAprobadas == 1 && numJugadores > 8){
+            startActivity(new Intent(MainActivity.this, InvestigarJugador.class));
+        }
+        if(fascistasAprobadas == 2 && numJugadores > 6){
+            startActivity(new Intent(MainActivity.this, InvestigarJugador.class));
+        }
+        if(fascistasAprobadas == 3){
+            if(numJugadores<7){
+                //Espiar tres cartas
+            }else {
+                //Presidente a dedo
+            }
+        }
+        if(fascistasAprobadas > 3){
+            //kill
+        }
+
     }
 }
