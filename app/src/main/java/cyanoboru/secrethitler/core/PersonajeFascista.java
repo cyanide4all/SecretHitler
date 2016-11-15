@@ -6,6 +6,6 @@ package cyanoboru.secrethitler.core;
 
 public class PersonajeFascista implements CartaDeIdentidad {
     public String getPersonaje() {
-        return "Un cerdo Fascista";
+        return "Fascista";
     }
 }
