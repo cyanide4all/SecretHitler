@@ -15,6 +15,7 @@ import cyanoboru.secrethitler.core.Tablero;
 public class MainActivity extends AppCompatActivity {
 
     protected static int REQUEST_CARTADELEY = 1;
+    protected static int REQUEST_JUGADORES = 2;
     protected Partida partida;
     protected Button leg;
     protected Button caos;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         if (!partida.rolesListos){
-            startActivity(new Intent(MainActivity.this, add_player.class));
+            startActivityForResult(new Intent(MainActivity.this, add_player.class), REQUEST_JUGADORES);
             // redirect main activity to add player
         }
     }
@@ -58,16 +59,21 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == REQUEST_CARTADELEY){
             Toast.makeText(MainActivity.this,"LEY APROBADA POR LEGISLACION", Toast.LENGTH_LONG).show();
             Partida.getInstance().getTablero().aprobarLey((CartaDeLey) data.getExtras().getSerializable("carta"));
+            actualizarTodo();
         }
-        actualizarTodo();
+        if(requestCode == REQUEST_JUGADORES){
+            actualizarTodo();
+        }
     }
+
 
     //Actualiza todos los textview necesarios para mostrar que esta pasando en el tablero
     public void actualizarTodo(){
         TextView update;
+        int fascistasAprobadas = partida.getTablero().getFascistas();
         //Acualizamos el contador de liberales y fascistas
         update = (TextView) findViewById(R.id.FascistasAprobadas);
-        update.setText(String.valueOf(partida.getTablero().getFascistas()));
+        update.setText(String.valueOf(fascistasAprobadas));
         update = (TextView) findViewById(R.id.LiberalesAprobadas);
         update.setText(String.valueOf(partida.getTablero().getLiberales()));
 
@@ -77,13 +83,49 @@ public class MainActivity extends AppCompatActivity {
 
         //Actualizamos el textbox de info importante
         TextView extraText = (TextView) findViewById(R.id.ExtraText);
-        String toShow = "";
-        toShow+= "El presidente nombre y todos votais al siguiente canciller\n";
-        if(partida.getTablero().getFascistas()>=3){
-            toShow +=  "Si el próximo canciller es Hitler, ganaran esos cerdos fascistas";
+
+        String toShow = ""; //reset del string
+
+        //Los dos casos ininmutables
+        toShow+= "El presidente nombra y todos votais al siguiente canciller";
+        if(fascistasAprobadas>=3){
+            toShow +=  "\nSi el próximo canciller es Hitler, ganaran esos cerdos fascistas";
         }
-        //TODO MUY FUERTE
-        //TODO Segun el numero de jugadores y leyes fascistas, hablar de los poderes
+
+        //Texto variante en funcion del numero de jugadores
+        if(partida.getJugadores().size()<7) { //---5 o 6---
+            if(fascistasAprobadas==2){
+                toShow += "\nLa proxima ley fascista otorga el poder de ver las siguientes 3 cartas";
+            }
+            if(fascistasAprobadas>2){
+                toShow += "\nLa proxima ley fascista otroga el poder del asesinato";
+            }
+        }else{
+            if(partida.getJugadores().size()<9) { //---7 o 8---
+                if(fascistasAprobadas==1){
+                    toShow += "\nLa proxima ley fascista otorga el poder de investigar la afiliacion politica de un jugador";
+                }
+                if(fascistasAprobadas==2){
+                    toShow += "\nLa proxima ley fascista otroga el poder de elegir el proximo presidente a dedo";
+                }
+                if(fascistasAprobadas>2){
+                    toShow += "\nLa proxima ley fascista otroga el poder del asesinato";
+                }
+            }else{ //---9 o 10---
+                if(fascistasAprobadas==0){
+                    toShow += "\nLa proxima ley fascista otorga el poder de investigar la afiliacion politica de un jugador";
+                }
+                if(fascistasAprobadas==1){
+                    toShow += "\nLa proxima ley fascista otorga el poder de investigar la afiliacion politica de un jugador";
+                }
+                if(fascistasAprobadas==2){
+                    toShow += "\nLa proxima ley fascista otroga el poder de elegir el proximo presidente a dedo";
+                }
+                if(fascistasAprobadas>2){
+                    toShow += "\nLa proxima ley fascista otroga el poder del asesinato";
+                }
+            }
+        }
         extraText.setText(toShow);
     }
 }
