@@ -22,31 +22,31 @@ import cyanoboru.secrethitler.core.Tablero;
 
 public class legislar extends AppCompatActivity {
 
-    protected ImageView law1;
-    protected ImageView law2;
-    protected ImageView law3;
-
     protected View container;
     protected Button showLaws;
 
     protected List<ImageView> showCartas = new ArrayList<>();
     protected boolean hidden;
     protected List<CartaDeLey> cartas;
-    protected List<CartaDeLey> cloneCartas;
+    protected String c1;
+    protected String c2;
+    protected String c3;
     protected Tablero tablero;
+    protected ImageView[] showcartas;
 
     protected void discardCard(String card, ImageView im){
         if(!hidden) {
             TextView t = (TextView) findViewById(R.id.ID_Jugando);
             t.setText("Canciller");
-            showCartas.remove(im);
-            cartas.remove(card);
+            //showCartas.remove(im);
+            removeCarta(card);
 
             im.setVisibility(View.GONE);
 
 
-            if (showCartas.size() == 1) {
+            if (cartas.size() == 1) {
                 this.setResult(1, new Intent().putExtra("carta", cartas.get(0)));
+                Log.d("me quedo con",cartas.get(0).getLey());
                 this.finish();
             }else{
                 toogleLaws();
@@ -60,6 +60,7 @@ public class legislar extends AppCompatActivity {
     protected void removeCarta(String carta){
         for (CartaDeLey c: cartas){
             if(c.getLey().compareTo(carta) == 0){
+                Log.d("borrada ",c.getLey());
                 cartas.remove(c);
                 break;
             }
@@ -115,17 +116,18 @@ public class legislar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_legislar);
 
+        showcartas = new ImageView[3];
+
         hidden = true;
-        law1 = (ImageView) findViewById(R.id.law1);
-        law2 = (ImageView) findViewById(R.id.law2);
-        law3 = (ImageView) findViewById(R.id.law3);
-        showCartas.add(law1);
-        showCartas.add(law2);
-        showCartas.add(law3);
+        showcartas[0] = (ImageView) findViewById(R.id.law1);
+        showcartas[1] = (ImageView) findViewById(R.id.law2);
+        showcartas[2] = (ImageView) findViewById(R.id.law3);
 
         this.tablero = Partida.getInstance().getTablero();
         this.cartas = tablero.get3Cartas();
-        this.cloneCartas = this.cartas;
+        c1 = cartas.get(0).getLey();
+        c2 = cartas.get(1).getLey();
+        c3 = cartas.get(2).getLey();
 
         showLaws = (Button) findViewById(R.id.showLawsButton);
 
@@ -140,7 +142,7 @@ public class legislar extends AppCompatActivity {
         container.setVisibility(View.GONE);
 
         int i = 0;
-        for(ImageView im:showCartas){
+        for(ImageView im: showcartas){
             if(cartas.get(i++).getLey().compareTo("Liberal") == 0){
                 im.setImageResource(R.mipmap.leyliberal);
             }else{
@@ -148,22 +150,22 @@ public class legislar extends AppCompatActivity {
             }
         }
 
-        law1.setOnClickListener(new View.OnClickListener() {
+        showcartas[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                discardCard(cloneCartas.get(0).getLey(), law1);
+                discardCard(c1, showcartas[0]);
             }
         });
-        law2.setOnClickListener(new View.OnClickListener() {
+        showcartas[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                discardCard(cloneCartas.get(1).getLey(), law2);
+                discardCard(c2, showcartas[1]);
             }
         });
-        law3.setOnClickListener(new View.OnClickListener() {
+        showcartas[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                discardCard(cloneCartas.get(2).getLey(), law3);
+                discardCard(c3, showcartas[2]);
             }
         });
     }
