@@ -128,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+        if(fascistasAprobadas==5) {
+            toShow += "\nA partir de ahora, el canciller puede negarse a aprobar las leyes que le lleguen";
+        }
         extraText.setText(toShow);
         checkPoderes();
     }

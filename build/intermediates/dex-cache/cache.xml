@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_bb62acec894f491f0bfb4dfb9c4ceb44dfe924d6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_cd022b6d70adbcdd53c4c86402cb66a07b688aa3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_982979ad9bac8b9749cf0eb85f29114bb8a4cbe1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_f72fdf27f03c5ffe9ebd17cf9738452d13e68025/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_008f61e462a59f080bcbbd00c7d01c044e72a9df/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_48a0c00ea700ab0c3e18b9994f102da012104a05/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_7283154f60f3369af62c717ec84acf5842fb7f80/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_da4bfef414734c9110de5cd835bc905361eb0382/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_38611092520b51e9d0c538a8514e2e7bef933b49/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_49cccc9ffd09062c944820f0471fa4471e635d48/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="eabe5aafd7de576000afa1f9a128dfeaca468982">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7fbd492de156ffc6ee8d7226140e0ee1c1ab9c5c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_14de73814433c001c0a29a9122077bb9383f64f4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="eb987fd1f8aff1ee7dc542cfe499e721392ccde0">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_29a615b5ec3c75a9cdecbd954ebe50e5c081de90/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_20156e292c6e7307c21df4b5b708f962a232dc89/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_4f0410789a08e934d7302e98f5e1b24058cff1b7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_adc5d7efe62ce1643a89725133483175501d50a9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cya/gitclones/SecretHitler/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/cya/gitclones/SecretHitler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_8be836fb53ffa861d8d5375959316fe5cb38ca98/classes.dex" />
+    </item>
+
+</items>
