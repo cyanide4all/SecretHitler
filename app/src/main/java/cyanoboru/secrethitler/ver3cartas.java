@@ -9,12 +9,20 @@ import android.view.ViewAnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.List;
+
+import cyanoboru.secrethitler.core.CartaDeLey;
+import cyanoboru.secrethitler.core.Partida;
+import cyanoboru.secrethitler.core.Tablero;
+
 public class ver3cartas extends AppCompatActivity {
 
     private ImageView[] images;
     private Button back;
     private Button show;
     private View container;
+
+    private Tablero tablero;
 
     protected void showCards(){
         View myView = container;
@@ -38,6 +46,9 @@ public class ver3cartas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver3cartas);
 
+        tablero = Partida.getInstance().getTablero();
+        List<CartaDeLey> cartas = tablero.ver3Cartas();
+
         images = new ImageView[3];
         back = (Button) findViewById(R.id.seeBack);
         show = (Button) findViewById(R.id.seecards);
@@ -47,6 +58,16 @@ public class ver3cartas extends AppCompatActivity {
         images[2] = (ImageView) findViewById(R.id.vlaw3);
 
         container = findViewById(R.id.containersee);
+        container.setVisibility(View.GONE);
+
+        int i = 0;
+        for(ImageView im: images){
+            if(cartas.get(i++).getLey().compareTo("Liberal") == 0){
+                im.setImageResource(R.mipmap.leyliberal);
+            }else{
+                im.setImageResource(R.mipmap.leyfascista);
+            }
+        }
 
         show.setOnClickListener(new View.OnClickListener() {
             @Override
