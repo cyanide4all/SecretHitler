@@ -112,6 +112,15 @@ public class MazoDeLeyes {
         }
     }
 
+    public List<CartaDeLey> verTresPrimerasCartas(){
+        List<CartaDeLey> l = new ArrayList<>(3);
+        Stack<CartaDeLey> clone = (Stack<CartaDeLey>) this.cartas.clone();
+        for(int i = 0; i<3;i++) {
+            l.add(clone.pop());
+        }
+        return l;
+    }
 
 
-}//fin de clase
+
+}//fin de clase // gracias capitan!
