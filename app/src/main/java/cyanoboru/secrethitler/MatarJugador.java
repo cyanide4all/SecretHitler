@@ -10,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import cyanoboru.secrethitler.core.Partida;
 
@@ -17,10 +20,32 @@ public class MatarJugador extends AppCompatActivity {
 
     private boolean isAlive;
     private Button returnButton;
+    private ImageView image;
+    private TextView title;
+    private TextView infoAsesinato;
+
+    public void kill(int i){
+        isAlive = !isAlive;
+        if(!Partida.getInstance().getJugadores().get(i).getCartaDeIdentidad().getPersonaje().equals("Hitler")){
+            infoAsesinato.setText(Partida.getInstance().getJugadores().get(i).getNombre()+" ha sido asesinado. \nNo era Hitler.");
+        }else{
+            infoAsesinato.setText("Hitler ha muerto");
+            //TODO enviar partida ganada por parte liberal
+        }
+        returnButton.setVisibility(View.VISIBLE);
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_matar_jugador);
+        setContentView(R.layout.activity_investigar_jugador);
         Partida partida = Partida.getInstance();
         ArrayList<Button> botones = new ArrayList<>();
         isAlive = true;
@@ -126,17 +151,13 @@ public class MatarJugador extends AppCompatActivity {
         while(i<10){
             botones.get(i++).setVisibility(View.GONE);
         }
-
+        returnButton.setVisibility(View.GONE);
+        image = (ImageView) findViewById(R.id.imageView2);
+        image.setVisibility(View.GONE);
+        title = (TextView) findViewById(R.id.superpoderID);
+        title.setText("Asesina un Jugador");
+        infoAsesinato = (TextView) findViewById(R.id.infoAsesinato);
+        infoAsesinato.setText("");
     }
 
-    public void kill(int i){
-        //TODO mostrar si el jugador es hitler
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-    }
 }

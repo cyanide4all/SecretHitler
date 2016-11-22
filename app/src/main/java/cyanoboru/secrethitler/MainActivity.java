@@ -40,11 +40,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //aumenta caos
-                partida.incrementarCaos();
+                CartaDeLey aux = partida.incrementarCaos();
+                if(aux != null);
                 //LANZAR METODO QUE ACTUALICE LOS CAMPOS NECESARIOS
                 actualizarTodo();
                 if(partida.getTablero().getCaos()==0){
                     Toast.makeText(MainActivity.this,"LEY APROBADA POR CAOS", Toast.LENGTH_LONG).show();
+                    if(aux.getLey().equals("Fascista")){
+                        checkPoderes();
+                    }
                 }
             }
         });
@@ -63,9 +67,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this,"LEY APROBADA POR LEGISLACION", Toast.LENGTH_LONG).show();
             Partida.getInstance().getTablero().aprobarLey((CartaDeLey) data.getExtras().getSerializable("carta"));
             actualizarTodo();
+            if(((CartaDeLey) data.getExtras().getSerializable("carta")).getLey().equals("Fascista")){
+                checkPoderes();
+            }
         }else{
             actualizarTodo();
         }
+
     }
 
 
@@ -132,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
             toShow += "\nA partir de ahora, el canciller puede negarse a aprobar las leyes que le lleguen";
         }
         extraText.setText(toShow);
-        checkPoderes();
     }
 
     public void checkPoderes(){
