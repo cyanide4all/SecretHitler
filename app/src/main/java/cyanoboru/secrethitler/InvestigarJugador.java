@@ -25,11 +25,11 @@ public class InvestigarJugador extends AppCompatActivity {
         image.setVisibility(View.VISIBLE);
         canInvestigate = false;
         int idImagen;
-        //TODO cambiar esto cuando felipe meta las cartas de partido bien
+        
         if(Partida.getInstance().getJugadores().get(n).getCartaDePartido().getPartido().equals("Fascista")){
-            idImagen = R.mipmap.cartafascista;//TODO cambiar aqui
+            idImagen = R.mipmap.cartaPartidoFascista;
         }else{
-            idImagen = R.mipmap.cartaliberal;//TODO y aqui tambien
+            idImagen = R.mipmap.cartaPartidoLiberal;
         }
         image.setImageResource(idImagen);
         returnButton.setOnClickListener(new View.OnClickListener() {
