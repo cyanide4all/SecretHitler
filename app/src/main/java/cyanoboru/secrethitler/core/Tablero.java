@@ -36,6 +36,9 @@ public class Tablero {
     public List<CartaDeLey> get3Cartas(){
         return leyes.legislacion();
     }
+    public List<CartaDeLey> ver3Cartas(){
+        return leyes.verTresPrimerasCartas();
+    }
 
 
 
