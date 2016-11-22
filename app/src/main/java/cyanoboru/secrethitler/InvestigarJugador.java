@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,8 @@ public class InvestigarJugador extends AppCompatActivity {
     private Button returnButton;
     private boolean canInvestigate;
     private ImageView image;
+    private TextView title;
+    private TextView infoAsesinato;
 
     private void investigar(int n){
         returnButton.setVisibility(View.VISIBLE);
@@ -148,5 +151,9 @@ public class InvestigarJugador extends AppCompatActivity {
         returnButton.setVisibility(View.GONE);
         image = (ImageView) findViewById(R.id.imageView2);
         image.setVisibility(View.GONE);
+        title = (TextView) findViewById(R.id.superpoderID);
+        title.setText("Investiga un Jugador");
+        infoAsesinato = (TextView) findViewById(R.id.infoAsesinato);
+        infoAsesinato.setVisibility(View.GONE);
     }
 }
