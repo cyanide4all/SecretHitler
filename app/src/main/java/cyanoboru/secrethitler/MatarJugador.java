@@ -1,56 +1,37 @@
 package cyanoboru.secrethitler;
-
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-
 import java.util.ArrayList;
-
+import cyanoboru.secrethitler.core.Partida;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import java.util.ArrayList;
 import cyanoboru.secrethitler.core.Partida;
 
-public class InvestigarJugador extends AppCompatActivity {
+public class MatarJugador extends AppCompatActivity {
 
+    private boolean isAlive;
     private Button returnButton;
-    private boolean canInvestigate;
-    private ImageView image;
-
-    private void investigar(int n){
-        returnButton.setVisibility(View.VISIBLE);
-        image.setVisibility(View.VISIBLE);
-        canInvestigate = false;
-        int idImagen;
-        //TODO cambiar esto cuando felipe meta las cartas de partido bien
-        if(Partida.getInstance().getJugadores().get(n).getCartaDePartido().getPartido().equals("Fascista")){
-            idImagen = R.mipmap.cartafascista;//TODO cambiar aqui
-        }else{
-            idImagen = R.mipmap.cartaliberal;//TODO y aqui tambien
-        }
-        image.setImageResource(idImagen);
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_investigar_jugador);
+        setContentView(R.layout.activity_matar_jugador);
         Partida partida = Partida.getInstance();
         ArrayList<Button> botones = new ArrayList<>();
-        canInvestigate = true;
+        isAlive = true;
 
         //Toston de declarar every boton
         botones.add((Button) findViewById(R.id.jugador1));
         botones.get(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(canInvestigate) {
-                    investigar(0);
+                if(isAlive) {
+                    kill(0);
                 }
             }
         });
@@ -58,8 +39,8 @@ public class InvestigarJugador extends AppCompatActivity {
         botones.get(1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(canInvestigate){
-                    investigar(1);
+                if(isAlive){
+                    kill(1);
                 }
             }
         });
@@ -67,8 +48,8 @@ public class InvestigarJugador extends AppCompatActivity {
         botones.get(2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(canInvestigate) {
-                    investigar(2);
+                if(isAlive) {
+                    kill(2);
                 }
             }
         });
@@ -76,8 +57,8 @@ public class InvestigarJugador extends AppCompatActivity {
         botones.get(3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(canInvestigate) {
-                    investigar(3);
+                if(isAlive) {
+                    kill(3);
                 }
             }
         });
@@ -85,8 +66,8 @@ public class InvestigarJugador extends AppCompatActivity {
         botones.get(4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(canInvestigate) {
-                    investigar(4);
+                if(isAlive) {
+                    kill(4);
                 }
             }
         });
@@ -94,8 +75,8 @@ public class InvestigarJugador extends AppCompatActivity {
         botones.get(5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(canInvestigate) {
-                    investigar(5);
+                if(isAlive) {
+                    kill(5);
                 }
             }
         });
@@ -103,8 +84,8 @@ public class InvestigarJugador extends AppCompatActivity {
         botones.get(6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(canInvestigate) {
-                    investigar(6);
+                if(isAlive) {
+                    kill(6);
                 }
             }
         });
@@ -112,8 +93,8 @@ public class InvestigarJugador extends AppCompatActivity {
         botones.get(7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(canInvestigate) {
-                    investigar(7);
+                if(isAlive) {
+                    kill(7);
                 }
             }
         });
@@ -121,8 +102,8 @@ public class InvestigarJugador extends AppCompatActivity {
         botones.get(8).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(canInvestigate) {
-                    investigar(8);
+                if(isAlive) {
+                    kill(8);
                 }
             }
         });
@@ -130,8 +111,8 @@ public class InvestigarJugador extends AppCompatActivity {
         botones.get(9).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(canInvestigate) {
-                    investigar(9);
+                if(isAlive) {
+                    kill(9);
                 }
             }
         });
@@ -145,8 +126,17 @@ public class InvestigarJugador extends AppCompatActivity {
         while(i<10){
             botones.get(i++).setVisibility(View.GONE);
         }
-        returnButton.setVisibility(View.GONE);
-        image = (ImageView) findViewById(R.id.imageView2);
-        image.setVisibility(View.GONE);
+
+    }
+
+    public void kill(int i){
+        //TODO mostrar si el jugador es hitler
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 }

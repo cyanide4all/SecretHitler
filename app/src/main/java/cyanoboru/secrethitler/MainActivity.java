@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(fascistasAprobadas > 3){
             //TODO con nueva actividad. Casi plagio del investigar
-            //kill
+            startActivity(new Intent(MainActivity.this, MatarJugador.class));
         }
 
     }
