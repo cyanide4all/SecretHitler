@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Lanzamiento de una legislacion
-                startActivityForResult(new Intent(MainActivity.this, ver3cartas.class), REQUEST_CARTADELEY);
+                startActivityForResult(new Intent(MainActivity.this, legislar.class), REQUEST_CARTADELEY);
             }
         });
 
