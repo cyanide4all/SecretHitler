@@ -26,6 +26,7 @@ public class MatarJugador extends AppCompatActivity {
 
     public void kill(int i){
         isAlive = !isAlive;
+        Partida.getInstance().getJugadores().get(i).kill();
         if(!Partida.getInstance().getJugadores().get(i).getCartaDeIdentidad().getPersonaje().equals("Hitler")){
             infoAsesinato.setText(Partida.getInstance().getJugadores().get(i).getNombre()+" ha sido asesinado. \nNo era Hitler.");
         }else{
@@ -150,6 +151,11 @@ public class MatarJugador extends AppCompatActivity {
         }
         while(i<10){
             botones.get(i++).setVisibility(View.GONE);
+        }
+        for(int j = 0; j<partida.getJugadores().size(); j++){
+            if(!partida.getJugadores().get(j).estaVivo()){
+                botones.get(j).setVisibility(View.GONE);
+            }
         }
         returnButton.setVisibility(View.GONE);
         image = (ImageView) findViewById(R.id.imageView2);

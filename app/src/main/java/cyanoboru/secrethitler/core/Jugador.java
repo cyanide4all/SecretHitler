@@ -10,6 +10,8 @@ public class Jugador {
     private CartaDeIdentidad personaje;
     // Cambiado por nemo para que los jugadores tengan nombre
     private String nombre;
+    // Cambiado otra vez para saber si estan muertos
+    private boolean asesinado;
 
     public Jugador(String nombre, CartaDePartido pa, CartaDeIdentidad pe){
         partido = pa;
@@ -22,6 +24,7 @@ public class Jugador {
         this.nombre = nombre;
         // todo el mundo es liberal hasta que se corrompe
         this.setLiberal();
+        this.asesinado = false;
     }
 
     public void setPartido( CartaDePartido p){
@@ -61,5 +64,12 @@ public class Jugador {
         id=i;
     }
 
+    public boolean estaVivo(){
+        return !asesinado;
+    }
+    public void kill(){
+        //Te deja como JJ papu
+        asesinado = true;
+    }
 
 }
