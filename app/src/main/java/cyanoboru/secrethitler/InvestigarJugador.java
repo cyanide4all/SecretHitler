@@ -27,9 +27,9 @@ public class InvestigarJugador extends AppCompatActivity {
         int idImagen;
         
         if(Partida.getInstance().getJugadores().get(n).getCartaDePartido().getPartido().equals("Fascista")){
-            idImagen = R.mipmap.cartaPartidoFascista;
+            idImagen = R.mipmap.cartapartidofascista;
         }else{
-            idImagen = R.mipmap.cartaPartidoLiberal;
+            idImagen = R.mipmap.cartapartidoliberal;
         }
         image.setImageResource(idImagen);
         returnButton.setOnClickListener(new View.OnClickListener() {
