@@ -1,5 +1,6 @@
 package cyanoboru.secrethitler;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -153,15 +154,18 @@ public class MainActivity extends AppCompatActivity {
         }
         if(fascistasAprobadas == 3){
             if(numJugadores<7){
-                //TODO con nueva actividad. El poder mas complicado. Requerira de cosas en el core
-                //Espiar tres cartas
+                startActivity(new Intent(MainActivity.this, ver3cartas.class));
             }else {
-                //TODO con alertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder( MainActivity.this);
+                builder.setTitle( "Presidente designado" );
+                builder.setMessage( "El presidente actual elige al próximo presidente.\n" +
+                        "Nadie puede oponerse a esta decisión, y tras su mandato el orden normal se retoma" );
+                builder.setPositiveButton("Ok!", null);
+                builder.create().show();
                 //Presidente a dedo
             }
         }
         if(fascistasAprobadas > 3){
-            //TODO con nueva actividad. Casi plagio del investigar
             startActivity(new Intent(MainActivity.this, MatarJugador.class));
         }
 
