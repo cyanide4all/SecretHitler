@@ -25,7 +25,7 @@ public class InvestigarJugador extends AppCompatActivity {
         image.setVisibility(View.VISIBLE);
         canInvestigate = false;
         int idImagen;
-        
+
         if(Partida.getInstance().getJugadores().get(n).getCartaDePartido().getPartido().equals("Fascista")){
             idImagen = R.mipmap.cartapartidofascista;
         }else{

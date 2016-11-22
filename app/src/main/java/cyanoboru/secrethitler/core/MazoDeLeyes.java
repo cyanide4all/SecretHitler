@@ -69,6 +69,7 @@ public class MazoDeLeyes {
             Log.d("Carta:",c.getLey());
         }
         aBarajar = new ArrayList<>(); //Reiniciamos
+        this.cartasRestantes = nLeyesFascistas + nLeyesLiberales;
     }
 
     public int getCartasRestantes(){
@@ -85,7 +86,6 @@ public class MazoDeLeyes {
             return cartas.pop();
         }else{
             this.barajar();  //Baraja
-            this.cartasRestantes = nLeyesFascistas + nLeyesLiberales;
             return this.caos();     //y reintenta
         }
     }
@@ -107,11 +107,24 @@ public class MazoDeLeyes {
             // ahora baraja bien
             // barajamos otra vez
             this.barajar();
-            this.cartasRestantes = nLeyesFascistas + nLeyesLiberales;
             return this.legislacion();
+        }
+    }
+
+    public List<CartaDeLey> verTresPrimerasCartas(){
+        if(cartasRestantes > 2) {
+            List<CartaDeLey> l = new ArrayList<>(3);
+            Stack<CartaDeLey> clone = (Stack<CartaDeLey>) this.cartas.clone();
+            for (int i = 0; i < 3; i++) {
+                l.add(clone.pop());
+            }
+            return l;
+        }else{
+            barajar();
+            return this.verTresPrimerasCartas();
         }
     }
 
 
 
-}//fin de clase
+}//fin de clase // gracias capitan!
