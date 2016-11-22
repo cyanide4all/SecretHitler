@@ -20,7 +20,7 @@ tools:context="cyanoboru.secrethitler.MainActivity">
     android:layout_alignParentEnd="true">
 
     <TextView
-        android:text="Introduce your name to get your role card"
+        android:text="Introduce tu nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
@@ -32,7 +32,7 @@ tools:context="cyanoboru.secrethitler.MainActivity">
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/newPlayerName"
-        android:hint="Your name" />
+        android:hint="Mi nombre es..." />
 
     <LinearLayout
         android:orientation="vertical"
@@ -41,13 +41,13 @@ tools:context="cyanoboru.secrethitler.MainActivity">
         android:gravity="bottom">
 
         <Button
-            android:text="No more players, thanks!"
+            android:text="No habrá más jugadores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/noMorePLayers" />
 
         <Button
-            android:text="Add me!"
+            android:text="añadirme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/addMorePlayers"

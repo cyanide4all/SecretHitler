@@ -33,13 +33,13 @@
             app:srcCompat="@mipmap/ic_launcher" />
 
         <Button
-            android:text="Show!"
+            android:text="Ver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/showButton" />
 
         <Button
-            android:text="Ok i get it!"
+            android:text="Vale!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/okButton" />

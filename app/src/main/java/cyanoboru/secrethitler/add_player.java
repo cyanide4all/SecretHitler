@@ -20,6 +20,9 @@ public class add_player extends AppCompatActivity {
 
     protected void addPlayer( String name ){
         partida.addPlayer(name);
+        if(partida.getJugadores().size()>9){
+            add_more.setVisibility(View.GONE);
+        }
     }
 
     protected void showPlayerRole(){
@@ -52,7 +55,7 @@ public class add_player extends AppCompatActivity {
             public void onClick(View v) {
                 String p = player_name.getText().toString();
                 addPlayer(p);
-                Toast.makeText(add_player.this,"Player "+p+" Added to the game", Toast.LENGTH_SHORT).show();
+                Toast.makeText(add_player.this, p+" se ha añadido a la partida", Toast.LENGTH_SHORT).show();
                 player_name.setText("");
             }
         });

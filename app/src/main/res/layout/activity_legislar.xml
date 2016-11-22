@@ -70,7 +70,7 @@
                 android:textSize="18sp" />
 
             <Button
-                android:text="Touch to show laws"
+                android:text="Pulsa para revelar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/showLawsButton" />

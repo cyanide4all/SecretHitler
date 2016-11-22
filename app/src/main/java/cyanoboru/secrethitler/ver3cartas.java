@@ -25,6 +25,14 @@ public class ver3cartas extends AppCompatActivity {
     private Tablero tablero;
 
     protected void showCards(){
+        show.setVisibility(View.GONE);
+        back.setVisibility(View.VISIBLE);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         View myView = container;
 
         int cx = myView.getWidth() / 2;
@@ -75,12 +83,6 @@ public class ver3cartas extends AppCompatActivity {
                 showCards();
             }
         });
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        back.setVisibility(View.GONE);
     }
 }

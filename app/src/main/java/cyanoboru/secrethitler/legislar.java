@@ -54,7 +54,7 @@ public class legislar extends AppCompatActivity {
             }
 
         }else{
-            Toast.makeText(this,"Touch show laws to discard one",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Toca una ley para descartarla",Toast.LENGTH_SHORT).show();
         }
     }
 
