@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected static int REQUEST_CARTADELEY = 1;
     protected static int REQUEST_JUGADORES = 2;
+    protected static int REQUEST_CARTADELEY_FAIL = 3;
     protected Partida partida;
     protected Button leg;
     protected Button caos;
@@ -64,19 +65,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(requestCode == REQUEST_CARTADELEY){
-            Toast.makeText(MainActivity.this,"LEY APROBADA POR LEGISLACION", Toast.LENGTH_LONG).show();
-            Partida.getInstance().getTablero().aprobarLey((CartaDeLey) data.getExtras().getSerializable("carta"));
-            actualizarTodo();
-            if(((CartaDeLey) data.getExtras().getSerializable("carta")).getLey().equals("Fascista")){
-                checkPoderes();
+        if(requestCode == REQUEST_CARTADELEY) {
+            if (resultCode == REQUEST_CARTADELEY_FAIL) {
+                Toast.makeText(MainActivity.this, "DERECHO A VETO", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(MainActivity.this, "LEY APROBADA POR LEGISLACION", Toast.LENGTH_LONG).show();
+                Partida.getInstance().getTablero().aprobarLey((CartaDeLey) data.getExtras().getSerializable("carta"));
+                actualizarTodo();
+                if (((CartaDeLey) data.getExtras().getSerializable("carta")).getLey().equals("Fascista")) {
+                    checkPoderes();
+                }
             }
-        }else{
-            actualizarTodo();
+        }else {
+                actualizarTodo();
         }
-
     }
-
 
     //Actualiza todos los textview necesarios para mostrar que esta pasando en el tablero
     public void actualizarTodo(){

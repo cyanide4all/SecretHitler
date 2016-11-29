@@ -62,12 +62,18 @@
             android:gravity="bottom">
 
             <TextView
-                android:text="Touch a law to discard"
+                android:text="Toca para descartar una carta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView6"
+                android:id="@+id/TocaParaDescartarText"
                 android:textAppearance="@android:style/TextAppearance.Material.Body1"
                 android:textSize="18sp" />
+
+            <Button
+                android:text="¡Derecho a veto!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/botonVeto" />
 
             <Button
                 android:text="Pulsa para revelar"
