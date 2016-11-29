@@ -4,12 +4,15 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import cyanoboru.secrethitler.core.CartaDeLey;
+import cyanoboru.secrethitler.core.Hitler;
+import cyanoboru.secrethitler.core.Jugador;
 import cyanoboru.secrethitler.core.Partida;
 import cyanoboru.secrethitler.core.Tablero;
 
@@ -83,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Actualiza todos los textview necesarios para mostrar que esta pasando en el tablero
     public void actualizarTodo(){
+        vitoria();
         TextView update;
         int fascistasAprobadas = partida.getTablero().getFascistas();
         //Acualizamos el contador de liberales y fascistas
@@ -147,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void checkPoderes(){
+        vitoria();
         int fascistasAprobadas = partida.getTablero().getFascistas();
         int numJugadores = partida.getJugadores().size();
         if(fascistasAprobadas == 1 && numJugadores > 8){
@@ -172,5 +177,31 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, MatarJugador.class));
         }
 
+    }
+
+    public void vitoria(){
+        Log.d("Comprobando victoria","d");
+        if(partida.getTablero().getLiberales() >= 5){
+            sendToVictory("Los liberales ganan");
+        }else if(partida.getTablero().getFascistas() >= 6){
+            sendToVictory("Los fascistas han ganado");
+        }else if(!hitlerEstaVivo()){
+            sendToVictory("Los liberales ganan");
+        }
+    }
+
+    public void sendToVictory(String t){
+        Intent i = new Intent(this, vitoria.class);
+        i.putExtra("winners",t);
+        startActivity(i);
+    }
+
+    public boolean hitlerEstaVivo(){
+        for(Jugador j: partida.getJugadores()){
+            if(j.getCartaDeIdentidad().getClass() == Hitler.class){ // ouch
+                return j.estaVivo();
+            }
+        }
+        return false;
     }
 }
