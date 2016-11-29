@@ -36,6 +36,9 @@ public class Tablero {
     public List<CartaDeLey> get3Cartas(){
         return leyes.legislacion();
     }
+    public List<CartaDeLey> ver3Cartas(){
+        return leyes.verTresPrimerasCartas();
+    }
 
 
 
@@ -66,11 +69,14 @@ public class Tablero {
         contadorDeCaos = 0;
     }
 
-    public void aumentarCaos(){
+    public CartaDeLey aumentarCaos(){
         contadorDeCaos++;
         if(contadorDeCaos==3){
             contadorDeCaos = 0;
-            aprobarLey(leyes.caos());
+            CartaDeLey aux = leyes.caos();
+            aprobarLey(aux);
+            return aux;
         }
+        else return null;
     }
 }

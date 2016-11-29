@@ -18,7 +18,9 @@
         <activity android:name=".add_player" />
         <activity android:name=".show_role" />
         <activity android:name=".legislar" />
-        <activity android:name=".InvestigarJugador"></activity>
+        <activity android:name=".InvestigarJugador" />
+        <activity android:name=".MatarJugador" />
+        <activity android:name=".ver3cartas"></activity>
     </application>
 
 </manifest>

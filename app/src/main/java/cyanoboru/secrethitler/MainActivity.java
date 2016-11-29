@@ -1,5 +1,6 @@
 package cyanoboru.secrethitler;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,11 +41,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //aumenta caos
-                partida.incrementarCaos();
+                CartaDeLey aux = partida.incrementarCaos();
+                if(aux != null);
                 //LANZAR METODO QUE ACTUALICE LOS CAMPOS NECESARIOS
                 actualizarTodo();
                 if(partida.getTablero().getCaos()==0){
                     Toast.makeText(MainActivity.this,"LEY APROBADA POR CAOS", Toast.LENGTH_LONG).show();
+                    if(aux.getLey().equals("Fascista")){
+                        checkPoderes();
+                    }
                 }
             }
         });
@@ -63,9 +68,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this,"LEY APROBADA POR LEGISLACION", Toast.LENGTH_LONG).show();
             Partida.getInstance().getTablero().aprobarLey((CartaDeLey) data.getExtras().getSerializable("carta"));
             actualizarTodo();
+            if(((CartaDeLey) data.getExtras().getSerializable("carta")).getLey().equals("Fascista")){
+                checkPoderes();
+            }
         }else{
             actualizarTodo();
         }
+
     }
 
 
@@ -128,8 +137,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+        if(fascistasAprobadas==5) {
+            toShow += "\nA partir de ahora, el canciller puede negarse a aprobar las leyes que le lleguen";
+        }
         extraText.setText(toShow);
-        checkPoderes();
     }
 
     public void checkPoderes(){
@@ -143,16 +154,19 @@ public class MainActivity extends AppCompatActivity {
         }
         if(fascistasAprobadas == 3){
             if(numJugadores<7){
-                //TODO con nueva actividad. El poder mas complicado. Requerira de cosas en el core
-                //Espiar tres cartas
+                startActivity(new Intent(MainActivity.this, ver3cartas.class));
             }else {
-                //TODO con alertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder( MainActivity.this);
+                builder.setTitle( "Presidente designado" );
+                builder.setMessage( "El presidente actual elige al próximo presidente.\n" +
+                        "Nadie puede oponerse a esta decisión, y tras su mandato el orden normal se retoma" );
+                builder.setPositiveButton("Ok!", null);
+                builder.create().show();
                 //Presidente a dedo
             }
         }
         if(fascistasAprobadas > 3){
-            //TODO con nueva actividad. Casi plagio del investigar
-            //kill
+            startActivity(new Intent(MainActivity.this, MatarJugador.class));
         }
 
     }

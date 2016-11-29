@@ -38,6 +38,7 @@ public class legislar extends AppCompatActivity {
         if(!hidden) {
             TextView t = (TextView) findViewById(R.id.ID_Jugando);
             t.setText("Canciller");
+            //TODO aqui hay que hacer spawnear un boton de DERECHO A VETO para negarse a legislar
             //showCartas.remove(im);
             removeCarta(card);
 
@@ -53,7 +54,7 @@ public class legislar extends AppCompatActivity {
             }
 
         }else{
-            Toast.makeText(this,"Touch show laws to discard one",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Toca una ley para descartarla",Toast.LENGTH_SHORT).show();
         }
     }
 
