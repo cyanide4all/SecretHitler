@@ -20,7 +20,8 @@
         <activity android:name=".legislar" />
         <activity android:name=".InvestigarJugador" />
         <activity android:name=".MatarJugador" />
-        <activity android:name=".ver3cartas"></activity>
+        <activity android:name=".ver3cartas" />
+        <activity android:name=".vitoria"></activity>
     </application>
 
 </manifest>
