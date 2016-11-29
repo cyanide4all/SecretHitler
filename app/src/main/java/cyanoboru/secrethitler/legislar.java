@@ -3,6 +3,7 @@ package cyanoboru.secrethitler;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
+import android.icu.text.MessagePattern;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,17 +34,17 @@ public class legislar extends AppCompatActivity {
     protected String c3;
     protected Tablero tablero;
     protected ImageView[] showcartas;
+    protected TextView textoParaDescartar;
+    protected Button botonVeto;
 
     protected void discardCard(String card, ImageView im){
         if(!hidden) {
             TextView t = (TextView) findViewById(R.id.ID_Jugando);
             t.setText("Canciller");
-            //TODO aqui hay que hacer spawnear un boton de DERECHO A VETO para negarse a legislar
-            //showCartas.remove(im);
+
             removeCarta(card);
 
             im.setVisibility(View.GONE);
-
 
             if (cartas.size() == 1) {
                 this.setResult(1, new Intent().putExtra("carta", cartas.get(0)));
@@ -66,6 +67,7 @@ public class legislar extends AppCompatActivity {
                 break;
             }
         }
+        textoParaDescartar.setVisibility(View.GONE);
     }
 
     protected void toogleLaws(){
@@ -110,6 +112,9 @@ public class legislar extends AppCompatActivity {
             anim.start();
         }
         hidden = !hidden;
+        if(Partida.getInstance().getTablero().getFascistas()==5 && !hidden && cartas.size()==2){
+            botonVeto.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -117,6 +122,10 @@ public class legislar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_legislar);
 
+        textoParaDescartar = (TextView) findViewById(R.id.TocaParaDescartarText);
+        textoParaDescartar.setVisibility(View.GONE);
+        botonVeto = (Button) findViewById(R.id.botonVeto);
+        botonVeto.setVisibility(View.GONE);
         showcartas = new ImageView[3];
 
         hidden = true;
@@ -135,6 +144,7 @@ public class legislar extends AppCompatActivity {
         showLaws.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                textoParaDescartar.setVisibility(View.VISIBLE);
                 toogleLaws();
             }
         });
@@ -167,6 +177,13 @@ public class legislar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 discardCard(c3, showcartas[2]);
+            }
+        });
+        botonVeto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(3);
+                finish();
             }
         });
     }
