@@ -19,7 +19,7 @@ import java.util.Iterator;
 import cyanoboru.secrethitler.core.Jugador;
 import cyanoboru.secrethitler.core.Partida;
 
-public class show_role extends AppCompatActivity {
+public class show_role extends AppCompatActivity implements View.OnClickListener {
 
     TextView playername;
     ImageView showroleparty;
@@ -30,6 +30,7 @@ public class show_role extends AppCompatActivity {
     Partida partida;
     Iterator<Jugador> it;
     Jugador currentJugador;
+    boolean show = true;
 
     protected void nextPlayer(){
         if (it.hasNext()) {
@@ -113,19 +114,7 @@ public class show_role extends AppCompatActivity {
 
         showroleparty.setVisibility(View.INVISIBLE);
 
-
-
-        showbutton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getActionMasked() == MotionEvent.ACTION_DOWN){
-                    showCarta(true);
-                }else{
-                    showCarta(false);
-                }
-            return true;
-            }
-        });
+        showbutton.setOnClickListener(this);
 
         nextbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,5 +122,11 @@ public class show_role extends AppCompatActivity {
                 nextPlayer();
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        showCarta(show);
+        show = !show;
     }
 }
