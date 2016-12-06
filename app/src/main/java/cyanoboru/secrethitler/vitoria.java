@@ -52,13 +52,13 @@ public class vitoria extends AppCompatActivity implements View.OnClickListener {
         //Escritura
         SharedPreferences.Editor editor = prefs.edit();
         if(msg.equals("Los liberales ganan")){
-            editor.putInt( "L", liberalesGanadas++ );
+            editor.putInt( "L", ++liberalesGanadas );
             editor.putInt( "F", fascistasGanadas );
         }else{
             editor.putInt( "L", liberalesGanadas );
-            editor.putInt( "F", fascistasGanadas++ );
+            editor.putInt( "F", ++fascistasGanadas );
         }
-        editor.apply();
+        editor.commit();
     }
 
 
