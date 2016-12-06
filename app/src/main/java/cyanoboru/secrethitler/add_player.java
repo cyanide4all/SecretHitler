@@ -23,6 +23,9 @@ public class add_player extends AppCompatActivity {
         if(partida.getJugadores().size()>9){
             add_more.setVisibility(View.GONE);
         }
+        if(partida.getJugadores().size()>4){
+            no_more.setVisibility(View.VISIBLE);
+        }
     }
 
     protected void showPlayerRole(){
@@ -59,5 +62,7 @@ public class add_player extends AppCompatActivity {
                 player_name.setText("");
             }
         });
+
+        no_more.setVisibility(View.GONE);
     }
 }

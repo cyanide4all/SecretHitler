@@ -23,6 +23,10 @@ public class Partida {
         return instance;
     }
 
+    public static void clear(){
+        instance = null;
+    }
+
     public boolean rolesListos;
     private Tablero tablero;
     private ArrayList<Jugador> jugadores;

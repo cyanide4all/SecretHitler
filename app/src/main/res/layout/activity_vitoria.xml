@@ -12,9 +12,25 @@
     android:backgroundTintMode="multiply"
     android:gravity="center">
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ganadores" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ganadores"
+            android:gravity="center" />
+
+        <Button
+            android:text="Reiniciar Partida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/reiniciarPartida" />
+
+    </LinearLayout>
+
 </RelativeLayout>
