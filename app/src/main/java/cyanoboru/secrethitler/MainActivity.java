@@ -23,15 +23,27 @@ public class MainActivity extends AppCompatActivity {
     protected static int REQUEST_CARTADELEY = 1;
     protected static int REQUEST_JUGADORES = 2;
     protected static int REQUEST_CARTADELEY_FAIL = 3;
+    protected static int REQUEST_ASESINATO = 4;
+    protected static int REQUEST_ASESINATO_HITLER = 5;
+
     protected Partida partida;
     protected Button leg;
     protected Button caos;
-
+    private Button BotonGameOver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         partida = Partida.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        BotonGameOver = (Button) findViewById(R.id.BotonGameOver);
+        BotonGameOver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendToVictory("Los fascistas han ganado");
+            }
+        });
+        BotonGameOver.setVisibility(View.GONE);
 
         leg = (Button) findViewById(R.id.legislacionButton);
         leg.setOnClickListener(new View.OnClickListener() {
@@ -81,8 +93,12 @@ public class MainActivity extends AppCompatActivity {
                     checkPoderes();
                 }
             }
-        }else {
+        }else{
+            if(requestCode == REQUEST_ASESINATO && resultCode == REQUEST_ASESINATO_HITLER){
+                sendToVictory("Los liberales ganan");
+            }else {
                 actualizarTodo();
+            }
         }
     }
 
@@ -110,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         toShow+= "El presidente nombra y todos votais al siguiente canciller";
         if(fascistasAprobadas>=3){
             toShow +=  "\nSi el próximo canciller es Hitler, ganaran esos cerdos fascistas";
+            BotonGameOver.setVisibility(View.VISIBLE);
         }
 
         //Texto variante en funcion del numero de jugadores
@@ -175,8 +192,8 @@ public class MainActivity extends AppCompatActivity {
                 //Presidente a dedo
             }
         }
-        if(fascistasAprobadas > 3){
-            startActivity(new Intent(MainActivity.this, MatarJugador.class));
+        if(fascistasAprobadas > 3 && fascistasAprobadas<6){
+            startActivityForResult(new Intent(MainActivity.this, MatarJugador.class),REQUEST_ASESINATO);
         }
 
     }

@@ -113,7 +113,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="192dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -121,6 +121,12 @@
                 android:id="@+id/ExtraText"
                 android:layout_weight="1" />
         </LinearLayout>
+
+        <Button
+            android:text="Hemos votado a Hitler Canciller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/BotonGameOver" />
 
     </LinearLayout>
 

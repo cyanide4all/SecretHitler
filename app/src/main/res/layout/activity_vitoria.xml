@@ -23,13 +23,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ganadores"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
         <Button
             android:text="Reiniciar Partida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/reiniciarPartida" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/PartidasGanadasView"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     </LinearLayout>
 

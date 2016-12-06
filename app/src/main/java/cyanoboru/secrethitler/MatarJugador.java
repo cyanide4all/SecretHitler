@@ -29,8 +29,10 @@ public class MatarJugador extends AppCompatActivity {
         Partida.getInstance().getJugadores().get(i).kill();
         if(!Partida.getInstance().getJugadores().get(i).getCartaDeIdentidad().getPersonaje().equals("Hitler")){
             infoAsesinato.setText(Partida.getInstance().getJugadores().get(i).getNombre()+" ha sido asesinado. \nNo era Hitler.");
+            this.setResult(1111); //Random
         }else{
             infoAsesinato.setText("Hitler ha muerto");
+            this.setResult(5); //Hitler muerto
             //TODO enviar partida ganada por parte liberal
         }
         returnButton.setVisibility(View.VISIBLE);
