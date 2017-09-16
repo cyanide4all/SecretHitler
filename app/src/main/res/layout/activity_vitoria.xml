@@ -13,32 +13,37 @@
     android:gravity="center">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="top|center"
+        android:orientation="vertical">
 
         <TextView
-            android:text="TextView"
+            android:id="@+id/ganadores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ganadores"
             android:gravity="center"
+            android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
         <Button
-            android:text="Reiniciar Partida"
+            android:id="@+id/reiniciarPartida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/reiniciarPartida" />
+            android:text="Reiniciar Partida" />
 
         <TextView
-            android:text="TextView"
+            android:id="@+id/PartidasGanadasView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/PartidasGanadasView"
             android:gravity="center"
+            android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <ListView
+            android:id="@+id/listaView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
